@@ -9,16 +9,31 @@ import java.util.Optional;
  * Servicio de lógica de negocio para estudiantes
  * Contiene las validaciones y reglas de negocio
  * Delega las operaciones CRUD al repositorio
+ * IMPLEMENTA PATRÓN SINGLETON
  */
 public class EstudianteService {
+    
+    // 1. INSTANCIA ESTÁTICA - Una sola instancia para toda la aplicación
+    private static EstudianteService instance;
     
     private EstudianteRepository estudianteRepository;
     
     /**
-     * Constructor que inicializa el repositorio
+     * 2. CONSTRUCTOR PRIVADO - Nadie puede crear instancias con 'new'
      */
-    public EstudianteService() {
+    private EstudianteService() {
         this.estudianteRepository = EstudianteRepository.getInstance();
+    }
+    
+    /**
+     * 3. MÉTODO PÚBLICO PARA OBTENER LA INSTANCIA - Thread-Safe
+     * @return La única instancia del servicio
+     */
+    public static synchronized EstudianteService getInstance() {
+        if (instance == null) {
+            instance = new EstudianteService();
+        }
+        return instance;
     }
     
     /**

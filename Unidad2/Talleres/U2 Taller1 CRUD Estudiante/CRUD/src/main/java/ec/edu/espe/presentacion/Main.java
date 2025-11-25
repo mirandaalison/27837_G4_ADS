@@ -19,8 +19,8 @@ public class Main {
             @Override
             public void run() {
                 try {
-                    // Crear y mostrar la ventana principal
-                    EstudianteUI ventanaPrincipal = new EstudianteUI();
+                    // Crear y mostrar la ventana principal usando Singleton
+                    EstudianteUI ventanaPrincipal = EstudianteUI.getInstance();
                     ventanaPrincipal.setVisible(true);
                     
                     // Mostrar mensaje de bienvenida

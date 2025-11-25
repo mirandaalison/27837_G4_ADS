@@ -15,8 +15,12 @@ import java.util.List;
  * Interfaz gráfica de usuario para la gestión de estudiantes
  * Implementa el patrón MVC como Vista y Controlador
  * Utiliza Java Swing para la interfaz gráfica
+ * IMPLEMENTA PATRÓN SINGLETON para una única ventana
  */
 public class EstudianteUI extends JFrame {
+    
+    // 1. INSTANCIA ESTÁTICA - Una sola ventana para toda la aplicación
+    private static EstudianteUI instance;
     
     // Componentes de la interfaz
     private JTextField txtId;
@@ -38,14 +42,29 @@ public class EstudianteUI extends JFrame {
     private boolean modoEdicion = false;
     
     /**
-     * Constructor de la interfaz gráfica
+     * 2. CONSTRUCTOR PRIVADO - Nadie puede hacer 'new EstudianteUI()'
      */
-    public EstudianteUI() {
-        this.estudianteService = new EstudianteService();
+    private EstudianteUI() {
+        this.estudianteService = EstudianteService.getInstance();
         inicializarComponentes();
         configurarEventos();
         cargarDatos();
         establecerEstadoInicial();
+    }
+    
+    /**
+     * 3. MÉTODO PARA OBTENER LA ÚNICA INSTANCIA
+     * Si ya existe, la trae al frente en lugar de crear otra
+     */
+    public static EstudianteUI getInstance() {
+        if (instance == null) {
+            instance = new EstudianteUI();
+        } else {
+            // Si ya existe, traer ventana al frente
+            instance.toFront();
+            instance.requestFocus();
+        }
+        return instance;
     }
     
     /**
