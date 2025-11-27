@@ -1,11 +1,12 @@
 # Sistema CRUD de Estudiantes
-## Arquitectura de 3 Capas + Patrón Modelo-Vista-Controlador (MVC)
+## Arquitectura de 3 Capas + Patrones de Diseño
 
 ### 📋 Descripción del Proyecto
 
 Este proyecto implementa una aplicación CRUD (Create, Read, Update, Delete) para la gestión de estudiantes utilizando:
 - **Arquitectura de 3 Capas**: Separación clara entre datos, lógica de negocio y presentación
 - **Patrón MVC**: Modelo-Vista-Controlador
+- **Patrones de Diseño**: Singleton, Strategy y Observer
 - **Interfaz gráfica**: Java Swing
 - **Almacenamiento**: ArrayList (datos en memoria)
 
@@ -17,7 +18,16 @@ src/main/java/ec/edu/espe/
 │   ├── model/
 │   │   └── Estudiante.java                 # Modelo de datos
 │   └── repository/
-│       └── EstudianteRepository.java       # Capa de acceso a datos
+│       ├── EstudianteRepository.java       # Repositorio principal
+│       ├── strategy/                       # Patrón Strategy
+│       │   ├── IBusquedaStrategy.java      # Interfaz de estrategia
+│       │   ├── BusquedaPorNombre.java      # Estrategia por nombre
+│       │   ├── BusquedaPorEdad.java        # Estrategia por edad
+│       │   └── BusquedaPorId.java          # Estrategia por ID
+│       └── observer/                       # Patrón Observer
+│           ├── IRepositoryObserver.java    # Interfaz de observador
+│           ├── LogObserver.java            # Observador de logging
+│           └── EstadisticasObserver.java   # Observador de estadísticas
 ├── logica_negocio/
 │   └── EstudianteService.java              # Capa de lógica de negocio
 └── presentacion/
@@ -25,29 +35,81 @@ src/main/java/ec/edu/espe/
     └── Main.java                           # Punto de entrada
 ```
 
+### 🎯 Patrones de Diseño Implementados
+
+#### 1. Singleton Pattern
+- **Clases**: EstudianteRepository, EstudianteService, EstudianteUI
+- **Propósito**: Garantizar una única instancia de cada componente clave
+- **Beneficio**: Control centralizado y consistencia en el estado
+
+#### 2. Strategy Pattern ⭐ NUEVO
+- **Ubicación**: `repository/strategy/`
+- **Propósito**: Intercambiar algoritmos de búsqueda en tiempo de ejecución
+- **Estrategias disponibles**:
+  - **BusquedaPorNombre**: Búsqueda por coincidencia parcial en nombres
+  - **BusquedaPorEdad**: Búsqueda por edad exacta o rango (ej: "18-25")
+  - **BusquedaPorId**: Búsqueda por identificador específico
+- **Beneficio**: Flexibilidad para agregar nuevos tipos de búsqueda sin modificar código existente
+
+#### 3. Observer Pattern ⭐ NUEVO
+- **Ubicación**: `repository/observer/`
+- **Propósito**: Notificar automáticamente cambios en el repositorio
+- **Observadores implementados**:
+  - **LogObserver**: Registra todas las operaciones con timestamp
+  - **EstadisticasObserver**: Mantiene contadores de operaciones realizadas
+- **Beneficio**: Logging automático y estadísticas sin código adicional en operaciones CRUD
+
 ### 🔧 Componentes del Sistema
 
 #### 1. Capa de Datos (datos/)
 - **Estudiante.java**: Modelo que representa un estudiante con atributos ID, nombres y edad
-- **EstudianteRepository.java**: Repositorio que maneja las operaciones CRUD usando ArrayList
-  - Implementa patrón Singleton
-  - Operaciones: agregar, editar, eliminar, listar, buscar
-  - Datos de prueba iniciales incluidos
+- **EstudianteRepository.java**: Repositorio mejorado con múltiples patrones
+  - ✅ **Singleton**: Una única instancia
+  - ✅ **Strategy**: Búsquedas flexibles
+  - ✅ **Observer**: Notificaciones automáticas
+  - Operaciones CRUD completas
+  - Nuevos métodos de búsqueda avanzada
 
 #### 2. Capa de Lógica de Negocio (logica_negocio/)
 - **EstudianteService.java**: Contiene las validaciones y reglas de negocio
-  - Validación de ID único y mayor que 0
-  - Validación de nombres (2-100 caracteres, obligatorio)
-  - Validación de edad (15-120 años)
-  - Delegación de operaciones al repositorio
+  - Implementa Singleton
+  - Validaciones completas de datos
+  - Delegación inteligente al repositorio
 
 #### 3. Capa de Presentación (presentacion/)
-- **EstudianteUI.java**: Interfaz gráfica con Java Swing
-  - Formulario de entrada de datos
-  - Tabla para visualizar estudiantes
-  - Botones para operaciones CRUD
-  - Manejo de estados de la interfaz
-- **Main.java**: Clase principal que inicia la aplicación
+- **EstudianteUI.java**: Interfaz gráfica mejorada
+  - Implementa Singleton
+  - Formularios y tabla interactiva
+  - Gestión completa de estados
+- **Main.java**: Demostración de patrones + punto de entrada
+
+### 🚀 Nuevas Funcionalidades
+
+#### 🔍 Búsquedas Avanzadas (Strategy Pattern):
+```java
+// Búsqueda por nombre
+List<Estudiante> porNombre = repo.buscarPorNombre("juan");
+
+// Búsqueda por edad exacta
+List<Estudiante> edad20 = repo.buscarPorEdad("20");
+
+// Búsqueda por rango de edad
+List<Estudiante> jovenes = repo.buscarPorEdad("18-25");
+
+// Cambio dinámico de estrategia
+repo.cambiarEstrategiaBusqueda(new BusquedaPorId());
+List<Estudiante> porId = repo.buscarConEstrategia("1");
+```
+
+#### 👁️ Monitoreo Automático (Observer Pattern):
+```
+[LOG] 26/11/2025 14:30:15 - AGREGADO: Estudiante{id=4, nombres='Ana López', edad=21}
+[ESTADÍSTICAS] Estudiantes agregados: 1
+[LOG] 26/11/2025 14:31:20 - EDITADO:
+    Anterior: Estudiante{id=4, nombres='Ana López', edad=21}
+    Nuevo: Estudiante{id=4, nombres='Ana García', edad=22}
+[ESTADÍSTICAS] Estudiantes editados: 1
+```
 
 ### 🚀 Compilación y Ejecución
 
@@ -175,7 +237,9 @@ El sistema incluye tres estudiantes de prueba:
 - **DIP**: Dependencias hacia abstracciones
 
 #### Patrones de Diseño:
-- **Singleton**: EstudianteRepository
+- **Singleton**: EstudianteRepository, EstudianteService, EstudianteUI
+- **Strategy**: Algoritmos de búsqueda intercambiables
+- **Observer**: Sistema de notificaciones automático
 - **MVC**: Separación modelo-vista-controlador
 - **Repository**: Abstracción del acceso a datos
 
@@ -187,4 +251,6 @@ El sistema incluye tres estudiantes de prueba:
 
 ---
 
-**Desarrollado con Java Swing, aplicando Arquitectura de 3 Capas y Patrón MVC**
+**📁 Documentación Completa**: Ver `DOCUMENTACION_PATRONES.md` para análisis detallado del antes y después de la implementación.
+
+**🎓 Desarrollado con Java Swing, Arquitectura de 3 Capas y Patrones de Diseño (Singleton, Strategy, Observer)**
