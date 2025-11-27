@@ -274,7 +274,6 @@ public class EstudianteRepository {
     }
     
 
-    
     /**
      * Notificar a todos los observadores que se eliminó un estudiante
      * @param estudiante El estudiante eliminado
