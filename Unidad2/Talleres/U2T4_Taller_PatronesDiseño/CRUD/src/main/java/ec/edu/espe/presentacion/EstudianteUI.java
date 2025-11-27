@@ -1,6 +1,8 @@
 package ec.edu.espe.presentacion;
 
 import ec.edu.espe.datos.model.Estudiante;
+import ec.edu.espe.datos.repository.EstudianteRepository;
+import ec.edu.espe.datos.repository.strategy.*;
 import ec.edu.espe.logica_negocio.EstudianteService;
 import ec.edu.espe.logica_negocio.EstudianteService.ResultadoOperacion;
 
@@ -35,8 +37,17 @@ public class EstudianteUI extends JFrame {
     private DefaultTableModel modeloTabla;
     private JLabel lblEstado;
     
+    // COMPONENTES DE BÚSQUEDA (Strategy Pattern)
+    private JTextField txtBusqueda;
+    private JComboBox<String> cmbTipoBusqueda;
+    private JButton btnBuscar;
+    private JButton btnMostrarTodos;
+    
     // Servicio de lógica de negocio
     private EstudianteService estudianteService;
+    
+    // Repositorio para búsquedas (Strategy Pattern)
+    private EstudianteRepository estudianteRepository;
     
     // Variable para controlar el modo de edición
     private boolean modoEdicion = false;
@@ -46,6 +57,7 @@ public class EstudianteUI extends JFrame {
      */
     private EstudianteUI() {
         this.estudianteService = EstudianteService.getInstance();
+        this.estudianteRepository = EstudianteRepository.getInstance();
         inicializarComponentes();
         configurarEventos();
         cargarDatos();
@@ -84,6 +96,9 @@ public class EstudianteUI extends JFrame {
         // Panel del formulario
         JPanel panelFormulario = crearPanelFormulario();
         
+        // Panel de búsqueda
+        JPanel panelBusqueda = crearPanelBusqueda();
+        
         // Panel de la tabla
         JPanel panelTabla = crearPanelTabla();
         
@@ -92,7 +107,10 @@ public class EstudianteUI extends JFrame {
         
         // Agregar paneles al panel principal
         panelPrincipal.add(panelFormulario, BorderLayout.NORTH);
-        panelPrincipal.add(panelTabla, BorderLayout.CENTER);
+        JPanel panelCentral = new JPanel(new BorderLayout());
+        panelCentral.add(panelBusqueda, BorderLayout.NORTH);
+        panelCentral.add(panelTabla, BorderLayout.CENTER);
+        panelPrincipal.add(panelCentral, BorderLayout.CENTER);
         panelPrincipal.add(panelEstado, BorderLayout.SOUTH);
         
         add(panelPrincipal);
@@ -211,6 +229,44 @@ public class EstudianteUI extends JFrame {
     }
     
     /**
+     * Crear el panel de búsqueda usando Strategy Pattern
+     */
+    private JPanel crearPanelBusqueda() {
+        JPanel panel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        panel.setBorder(BorderFactory.createTitledBorder("🔍 Búsqueda Avanzada (Strategy Pattern)"));
+        
+        // Campo de búsqueda
+        panel.add(new JLabel("Buscar:"));
+        txtBusqueda = new JTextField(15);
+        panel.add(txtBusqueda);
+        
+        // ComboBox para tipo de búsqueda
+        panel.add(new JLabel("Tipo:"));
+        String[] tiposBusqueda = {
+            "Por Nombre", 
+            "Por Edad", 
+            "Por Rango de Edad (ej: 18-25)", 
+            "Por ID"
+        };
+        cmbTipoBusqueda = new JComboBox<>(tiposBusqueda);
+        panel.add(cmbTipoBusqueda);
+        
+        // Botón buscar
+        btnBuscar = new JButton("🔍 Buscar");
+        btnBuscar.setBackground(new Color(76, 175, 80));
+        btnBuscar.setForeground(Color.WHITE);
+        panel.add(btnBuscar);
+        
+        // Botón mostrar todos
+        btnMostrarTodos = new JButton("📋 Mostrar Todos");
+        btnMostrarTodos.setBackground(new Color(96, 125, 139));
+        btnMostrarTodos.setForeground(Color.WHITE);
+        panel.add(btnMostrarTodos);
+        
+        return panel;
+    }
+    
+    /**
      * Crear el panel de estado/información
      */
     private JPanel crearPanelEstado() {
@@ -265,6 +321,18 @@ public class EstudianteUI extends JFrame {
             establecerEstadoInicial();
             actualizarEstado("Formulario limpiado");
         });
+        
+        // EVENTOS DE BÚSQUEDA (Strategy Pattern)
+        btnBuscar.addActionListener(e -> realizarBusqueda());
+        
+        btnMostrarTodos.addActionListener(e -> {
+            cargarDatos();
+            txtBusqueda.setText("");
+            actualizarEstado("Mostrando todos los estudiantes");
+        });
+        
+        // Búsqueda al presionar Enter en el campo de búsqueda
+        txtBusqueda.addActionListener(e -> realizarBusqueda());
     }
     
     /**
@@ -378,6 +446,97 @@ public class EstudianteUI extends JFrame {
                     JOptionPane.ERROR_MESSAGE);
                 actualizarEstado("Error al eliminar estudiante");
             }
+        }
+    }
+    
+    /**
+     * Realizar búsqueda usando Strategy Pattern
+     */
+    private void realizarBusqueda() {
+        String criterio = txtBusqueda.getText().trim();
+        
+        if (criterio.isEmpty()) {
+            JOptionPane.showMessageDialog(this, 
+                "Ingrese un criterio de búsqueda", 
+                "Advertencia", 
+                JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        try {
+            List<Estudiante> resultados;
+            String tipoSeleccionado = (String) cmbTipoBusqueda.getSelectedItem();
+            
+            // USAR STRATEGY PATTERN SEGÚN LA SELECCIÓN
+            switch (tipoSeleccionado) {
+                case "Por Nombre":
+                    estudianteRepository.cambiarEstrategiaBusqueda(new BusquedaPorNombre());
+                    resultados = estudianteRepository.buscarConEstrategia(criterio);
+                    actualizarEstado("Búsqueda por nombre: '" + criterio + "' - " + resultados.size() + " encontrados");
+                    break;
+                    
+                case "Por Edad":
+                    estudianteRepository.cambiarEstrategiaBusqueda(new BusquedaPorEdad());
+                    resultados = estudianteRepository.buscarConEstrategia(criterio);
+                    actualizarEstado("Búsqueda por edad: '" + criterio + "' - " + resultados.size() + " encontrados");
+                    break;
+                    
+                case "Por Rango de Edad (ej: 18-25)":
+                    estudianteRepository.cambiarEstrategiaBusqueda(new BusquedaPorEdad());
+                    resultados = estudianteRepository.buscarConEstrategia(criterio);
+                    actualizarEstado("Búsqueda por rango: '" + criterio + "' - " + resultados.size() + " encontrados");
+                    break;
+                    
+                case "Por ID":
+                    estudianteRepository.cambiarEstrategiaBusqueda(new BusquedaPorId());
+                    resultados = estudianteRepository.buscarConEstrategia(criterio);
+                    actualizarEstado("Búsqueda por ID: '" + criterio + "' - " + resultados.size() + " encontrados");
+                    break;
+                    
+                default:
+                    resultados = estudianteService.listarTodosLosEstudiantes();
+                    actualizarEstado("Mostrando todos los estudiantes");
+                    break;
+            }
+            
+            // Actualizar tabla con resultados
+            actualizarTablaConResultados(resultados);
+            
+            // Mostrar estrategia utilizada en consola
+            System.out.println("🎯 Strategy usado: " + estudianteRepository.getNombreEstrategiaActual());
+            
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, 
+                "Error en la búsqueda: " + ex.getMessage(), 
+                "Error", 
+                JOptionPane.ERROR_MESSAGE);
+            actualizarEstado("Error en búsqueda: " + ex.getMessage());
+        }
+    }
+    
+    /**
+     * Actualizar tabla con resultados de búsqueda
+     */
+    private void actualizarTablaConResultados(List<Estudiante> estudiantes) {
+        // Limpiar tabla
+        modeloTabla.setRowCount(0);
+        
+        // Agregar filas con los resultados
+        for (Estudiante estudiante : estudiantes) {
+            Object[] fila = {
+                estudiante.getId(),
+                estudiante.getNombres(),
+                estudiante.getEdad()
+            };
+            modeloTabla.addRow(fila);
+        }
+        
+        // Si no hay resultados, mostrar mensaje
+        if (estudiantes.isEmpty()) {
+            JOptionPane.showMessageDialog(this, 
+                "No se encontraron estudiantes con el criterio especificado", 
+                "Sin resultados", 
+                JOptionPane.INFORMATION_MESSAGE);
         }
     }
     
