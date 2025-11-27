@@ -272,6 +272,7 @@ public class EstudianteRepository {
             observador.onEstudianteEditado(estudianteAnterior, estudianteNuevo);
         }
     }
+
     
     /**
      * Notificar a todos los observadores que se eliminó un estudiante
