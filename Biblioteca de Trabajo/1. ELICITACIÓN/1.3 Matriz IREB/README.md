@@ -11,7 +11,7 @@ Este directorio contiene los documentos que forman parte del **Elemento de Confi
 - **Autor:** Alison Miranda, Gabriel Vivanco, David Moran, Samir Mideros  
 - **Proyecto:** Feel The Control  
 - **Línea base:** LBR - Línea Base Requisitos  
-- **Localización:** `22426_G2_ADS\PREGAME\1. ELICITACION\1.2 Matriz IREB`  
+- **Localización:** `27837_G4_ADS\BIBLIOTECA DE TRABAJO\1. ELICITACION\1.2 Matriz IREB`  
 - **Tipo de ECS:** Documento (CSV / XLSX)  
 - **Fecha de creación:** 15/10/2025  
 - **ID del proyecto:** 27837_G4_ADS  
