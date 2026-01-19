@@ -22,9 +22,9 @@ Este directorio contiene los documentos que forman parte del **Elemento de Confi
 
 | Versión         | Fecha       | Responsable        | Aprobado por                          |
 |-----------------|------------|--------------------|---------------------------------------|
-| SRS_V1.0.0.pdf | 12/06/2025 | Gabriel Vivanco      | Gabriel Vivanco y Alison Miranda      |
-| SRS_V1.0.1.pdf | 18/06/2025 | Gabriel Vivanco     | Alison Miranda                        |
-| SRS_V1.0.2.pdf | 02/07/2025 | Alison Miranda    | Alison Miranda y David Moran         |
+| G5-FINAL-SRS v1.0.0 | 12/11/2025 | Gabriel Vivanco      | Gabriel Vivanco y Alison Miranda      |
+| G5-FINAL-SRS v1.0.1 | 23/12/2025 | Gabriel Vivanco     | Alison Miranda                        |
+| G5-FINAL-SRS v1.0.2 | 16/01/2026 | Alison Miranda    | Alison Miranda y David Moran         |
 
 ---
 
