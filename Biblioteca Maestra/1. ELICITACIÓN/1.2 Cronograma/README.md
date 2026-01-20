@@ -9,7 +9,7 @@ Este directorio contiene los documentos que forman parte del Elemento de Configu
 - **Autor:** Alison Miranda, Samir Mideros, David Morán, Gabriel Vivanco  
 - **Proyecto:** Feel The Control  
 - **Línea base:** PDP – Plan de Desarrollo del Proyecto  
-- **Localización:** 27837_G4_ADS/Biblioteca Maestra/1. Elicitación /1.2 Cronograma  
+- **Localización:** 27837_G4_ADS/Biblioteca Maestra/1. ELICITACIÓN/1.2 Cronograma 
 - **Tipo de ECS:** Documento (PDF)  
 - **Fecha de creación:** 08/01/2026  
 - **ID del proyecto:** 27837_G4_ADS  
