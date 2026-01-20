@@ -9,17 +9,17 @@ Este directorio contiene los documentos que forman parte del Elemento de Configu
 - **Autor:** Alison Miranda, Samir Mideros, David Morán, Gabriel Vivanco  
 - **Proyecto:** Feel The Control  
 - **Línea base:** LBR – Línea Base Requisitos  
-- **Localización:** Proyecto/Documentación/Requisitos/SRS  
+- **Localización:** 27837_G4_ADS/Biblioteca Maestra/1. ELICITACIÓN/1.1 Especificación de RS
 - **Tipo de ECS:** Documento (PDF)  
-- **Fecha de creación:** 08/05/2025  
-- **ID del proyecto:** FTC_ADS_G2  
+- **Fecha de creación:** 08/01/2026 
+- **ID del proyecto:** 27837_G4_ADS 
 
 ### Historial de Versiones del SRS
 
 | Versión           | Fecha       | Responsable        | Aprobado por                                   |
 |-------------------|------------|--------------------|-----------------------------------------------|
-| SRS_V1.0.0.pdf    | 12/06/2025 | Alison Miranda     | Samir Mideros, David Morán                    |
-| SRS_V1.0.1.pdf    | 18/06/2025 | Samir Mideros      | Gabriel Vivanco                               |
-| SRS_V1.0.2.pdf    | 02/07/2025 | David Morán        | Alison Miranda, Gabriel Vivanco               |
+| SRS_V1.0.0.pdf    | 12/12/2025 | Alison Miranda     | Samir Mideros, David Morán                    |
+| SRS_V1.0.1.pdf    | 18/12/2025 | Samir Mideros      | Gabriel Vivanco                               |
+| SRS_V1.0.2.pdf    | 02/01/2026 | David Morán        | Alison Miranda, Gabriel Vivanco               |
 
 Estas versiones reflejan la evolución del documento conforme al proceso de análisis y validación de requisitos. Cada versión corresponde a una revisión validada dentro de la línea base de requisitos del proyecto.
