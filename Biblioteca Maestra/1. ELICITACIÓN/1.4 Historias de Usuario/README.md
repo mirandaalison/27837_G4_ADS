@@ -9,7 +9,7 @@ Este directorio contiene los documentos que forman parte del Elemento de Configu
 - **Autor:** Alison Miranda, Samir Mideros, David Morán, Gabriel Vivanco  
 - **Proyecto:** Feel The Control  
 - **Línea base:** LBR – Línea Base Requisitos  
-- **Localización:** 27837_G4_ADS/Biblioteca Maestra/1. ELICITACIÓN/1.3 Historias de Usuario  
+- **Localización:** 27837_G4_ADS/Biblioteca Maestra/1. ELICITACIÓN/1.4 Historias de Usuario  
 - **Tipo de ECS:** Documento (XLSX)  
 - **Fecha de creación:** 08/01/2026  
 - **ID del proyecto:** 27837_G4_ADS  
