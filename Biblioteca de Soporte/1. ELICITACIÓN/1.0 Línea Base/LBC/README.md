@@ -1,4 +1,4 @@
-### 💻 Línea Base LBC — Implementación
+###  Línea Base LBC — Implementación
 
 Aquí se encuentra todo el código fuente y los scripts del proyecto **Feel The Control**, organizado para el desarrollo y las pruebas del sistema.
 
