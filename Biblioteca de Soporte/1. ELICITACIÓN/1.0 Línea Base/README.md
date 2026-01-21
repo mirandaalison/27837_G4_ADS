@@ -1,4 +1,4 @@
-## 📌 Líneas Base del Proyecto — *Feel The Control*
+##  Líneas Base del Proyecto — *Feel The Control*
 
 Las líneas base definen los conjuntos de documentos y artefactos aprobados en cada fase del proyecto **Feel The Control**, y sirven como referencia para el control de cambios y el seguimiento del desarrollo.
 
