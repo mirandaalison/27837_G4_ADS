@@ -12,7 +12,7 @@ Este directorio contiene los documentos que forman parte del Elemento de Configu
 - **Localización:** 27837_G4_ADS/Biblioteca de Soporte/1. ELICITACIÓN/1.1 Especificación de RS 
 - **Tipo de ECS:** Documento (PDF)  
 - **Fecha de creación:** 08/10/2025  
-- **ID del proyecto:** FTC_G2_ADS  
+- **ID del proyecto:** 27837_G4_ADS 
 
 ### Historial de Versiones del SRS
 
