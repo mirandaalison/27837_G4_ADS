@@ -1,14 +1,12 @@
-### 📁 Línea Base LBA — Análisis
+## 📌 Líneas Base del Proyecto — *Feel The Control*
 
-Esta carpeta contiene los documentos y diagramas relacionados con la fase de análisis del proyecto **Feel The Control**.
+Las líneas base definen los conjuntos de documentos y artefactos aprobados en cada fase del proyecto **Feel The Control**, y sirven como referencia para el control de cambios y el seguimiento del desarrollo.
 
-**Contenido principal:**
-- Diagramas de actividades  
-- Documentación de análisis funcional  
-- Análisis de procesos del sistema  
+| Código | Nombre Línea Base | Descripción                              | Fecha de Inicio     | Responsables                                   |
+|--------|-------------------|------------------------------------------|---------------------|-----------------------------------------------|
+| LBA    | Análisis           | Documentos de la fase de análisis.        | 08 de diciembre de 2025  | Alison Miranda, Samir Mideros                  |
+| LBD    | Diseño             | Diagramas y documentos de diseño.         | 08 de diciembre de 2025  | Gabriel Vivanco, David Morán                   |
+| LBR    | Requisitos         | Especificación de requisitos del sistema. | 08 de diciembre de 2025  | Samir Mideros, David Morán                     |
+| LBC    | Implementación     | Código fuente y scripts del desarrollo.   | 08 de diciembre de 2025  | Alison Miranda, Gabriel Vivanco                |
 
-**Fecha de inicio:**  
-08 de diciembre de 2025
-
-**Responsables:**  
-Alison Miranda, Samir Mideros, Gabriel Vivanco, David Morán
+Cada línea base es revisada y aprobada por el equipo antes de continuar con la siguiente fase del proyecto.
