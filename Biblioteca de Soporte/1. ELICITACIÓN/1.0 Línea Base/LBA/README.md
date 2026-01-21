@@ -1,4 +1,4 @@
-### 📁 Línea Base LBA — Análisis
+###  Línea Base LBA — Análisis
 
 Esta carpeta contiene los documentos y diagramas relacionados con la fase de análisis del proyecto **Feel The Control**.
 
