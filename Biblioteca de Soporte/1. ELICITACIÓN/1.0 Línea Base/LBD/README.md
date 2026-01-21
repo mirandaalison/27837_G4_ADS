@@ -1,4 +1,4 @@
-### 🎨 Línea Base LBD — Diseño
+###  Línea Base LBD — Diseño
 
 En esta carpeta se encuentran los documentos gráficos y diagramas que representan el diseño del sistema del proyecto **Feel The Control**.
 
