@@ -1,4 +1,4 @@
-### Historial de Versiones del Backlog
+### Historial de Versiones del Perfil del Proyecto
 
 | Versión           | Fecha       | Responsable     | Aprobado por                          |
 |-------------------|------------|------------------|----------------------------------------|
