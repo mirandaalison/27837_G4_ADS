@@ -1,7 +1,13 @@
-| Rol | Funciones | Responsables |
-|---|---|---|
-| Líder del proyecto | Coordinar las acciones del proceso de desarrollo y de los procesos de soporte.<br>Controlar el cumplimiento de los procedimientos de control de cambios. | Alison Miranda |
-| Gestor de la configuración del software | Definir el proceso de GCS. | Gabriel VIvanco |
-| Comité de Control de Cambios | Tomar decisiones sobre las peticiones de cambios.<br>Evaluar el impacto de los cambios. | Jenny Ruiz, Samir Mideros |
-| Responsable de SQA | Realizar las auditorías de GCS. | David Moran |
-| Bibliotecaria | Controlar la realización de cambios sobre las últimas versiones.<br>Transferir los elementos a modificar desde la biblioteca de soporte a la biblioteca de trabajo. | Jenny Ruiz |
+# Líneas Base del Proyecto Feel The Control
+
+| Código | Nombre Línea Base | Descripción | Fecha de Inicio | Responsables |
+|--------|------------------|-------------|-----------------|--------------|
+| LBA | Análisis | Documentos de la fase de análisis. | 08 de enero de 2026 | Alison Miranda, Gabriel Vivanco, Samir Mideros |
+| LBC | Implementación | Código y scripts del desarrollo. | 08 de enero de 2026 | David Morán, Alison Miranda, Gabriel Vivanco |
+| LBD | Diseño | Diagramas y documentos de diseño. | 08 de enero de 2026 | Samir Mideros, David Morán, Alison Miranda |
+| LBR | Requisitos | Especificación de requisitos. | 08 de enero de 2026 | Gabriel Vivanco, Samir Mideros, David Morán |
+
+---
+
+**Proyecto:** Feel The Control  
+**Integrantes:** Alison Miranda, Gabriel Vivanco, Samir Mideros, David Morán
