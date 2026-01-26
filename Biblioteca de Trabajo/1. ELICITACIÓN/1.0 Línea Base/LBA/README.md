@@ -7,7 +7,7 @@ Esta carpeta contiene los documentos y diagramas relacionados con la fase de **a
 - Documentación de análisis funcional y de procesos  
 
 ## Fecha de inicio
-**07 de noviembre de 2026**
+**07 de noviembre de 2025**
 
 ## Responsables
 - David Moran 
