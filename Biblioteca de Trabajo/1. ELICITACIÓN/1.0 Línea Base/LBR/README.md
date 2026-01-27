@@ -1,13 +1,16 @@
-# Líneas Base del Proyecto Feel The Control
+# Línea Base LBR - Requisitos
 
-| Código | Nombre Línea Base | Descripción | Fecha de Inicio | Responsables |
-|--------|------------------|-------------|-----------------|--------------|
-| LBA | Análisis | Documentos de la fase de análisis. | 08 de enero de 2026 | Alison Miranda, Gabriel Vivanco, Samir Mideros |
-| LBC | Implementación | Código y scripts del desarrollo. | 08 de enero de 2026 | David Morán, Alison Miranda, Gabriel Vivanco |
-| LBD | Diseño | Diagramas y documentos de diseño. | 08 de enero de 2026 | Samir Mideros, David Morán, Alison Miranda |
-| LBR | Requisitos | Especificación de requisitos. | 08 de enero de 2026 | Gabriel Vivanco, Samir Mideros, David Morán |
+Carpeta que contiene la especificación completa de requisitos del sistema **Feel The Control**.
 
----
+## Contenido principal
+- Documento SRS (Especificación de Requisitos de Software)
 
-**Proyecto:** Feel The Control  
-**Integrantes:** Alison Miranda, Gabriel Vivanco, Samir Mideros, David Morán
+## Fecha de inicio
+**07 de noviembre de 2025**
+
+## Responsables
+- David Moran 
+- Alison Miranda  
+- Gabriel Vivanco
+- Samir Mideros  
+
