@@ -22,11 +22,6 @@ Este directorio contiene los documentos que forman parte del **Elemento de Confi
 
 | Versión                     | Fecha       | Responsable        | Aprobado por                          |
 |-----------------------------|------------|--------------------|---------------------------------------|
-| CronogramaActividadesG4 v1.0.0        | 12/11/2025 | Gabriel Vivanco    | Gabriel Vivanco y Alison Miranda      |
-| CronogramaActividadesG4 v2.0.0         | 23/12/2025 | Alison Miranda     | Gabriel Vivanco                       |
-| CronogramaActividadesG4 v3.0.0         | 16/01/2026 | David Moran        | Alison Miranda y David Moran          |
+| CronogramaActividadesG4        | 12/11/2025 | Gabriel Vivanco    | Gabriel Vivanco y Alison Miranda      |
 
 ---
-
-Estas versiones reflejan la evolución del cronograma conforme al avance del proyecto.  
-Cada versión ha sido validada y aprobada como parte de la gestión del proyecto.
