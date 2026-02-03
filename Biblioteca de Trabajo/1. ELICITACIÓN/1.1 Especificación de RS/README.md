@@ -22,9 +22,9 @@ Este directorio contiene los documentos que forman parte del **Elemento de Confi
 
 | Versión         | Fecha       | Responsable        | Aprobado por                          |
 |-----------------|------------|--------------------|---------------------------------------|
-| G4-FINAL-SRS v1.0.0 | 12/11/2025 | Gabriel Vivanco      | Gabriel Vivanco y Alison Miranda      |
-| G4-FINAL-SRS v2.0.0 | 23/12/2025 | Gabriel Vivanco     | Alison Miranda                        |
-| G4-FINAL-SRS v3.0.0 | 16/01/2026 | Alison Miranda    | Alison Miranda y David Moran         |
+| G4-FINAL-SRS v1.0.0 | 12/11/2025 | Gabriel Vivanco      | Gabriel Vivanco y Samir Mideros     |
+| G4-FINAL-SRS v2.0.0 | 23/12/2025 | Gabriel Vivanco     | Alison Miranda  y David Morán                    |
+
 
 ---
 
